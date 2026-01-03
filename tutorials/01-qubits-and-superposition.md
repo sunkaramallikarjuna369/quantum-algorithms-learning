@@ -1,5 +1,4 @@
-
-                      # Tutorial 1: Qubits and Superposition
+# Tutorial 1: Qubits and Superposition
 
 ## Learning Objectives
 - Understand what a qubit is
@@ -18,7 +17,7 @@ A **qubit** (quantum bit) is the fundamental unit of quantum information. Unlike
 | Values | 0 or 1 | 0, 1, or both (superposition) |
 | State | Deterministic | Probabilistic |
 | Measurement | No change | Collapses to 0 or 1 |
-| Notation | 0 or 1 | \|\u03c8\u27e9 = α0\|0\u27e9 + α1\|1\u27e9 |
+| Notation | 0 or 1 | ψ⟩ = α0⟩0⟩ + α1⟩1⟩ |
 
 ## Quantum State Notation (Dirac Notation)
 
@@ -26,136 +25,98 @@ We use **Dirac notation** (also called bra-ket notation) to represent quantum st
 
 ### Basic Notation
 
-- **\|0\u27e9** - ket vector representing state 0
-- **\|1\u27e9** - ket vector representing state 1
-- **\|\u03c8\u27e9** - a general quantum state (psi)
+- **⟩0⟩** - ket vector representing state 0
+- **⟩1⟩** - ket vector representing state 1
+- **ψ⟩** - a general quantum state (psi)
 
 ### Superposition State
 
 A qubit in superposition is written as:
 
 ```
-|\u03c8\u27e9 = α0|0\u27e9 + α1|1\u27e9
+|ψ⟩ = α0|0⟩ + α1|1⟩
 ```
 
 Where:
+
 - **α0** and **α1** are **complex amplitudes** (coefficients)
 - **α0** = amplitude for state 0
 - **α1** = amplitude for state 1
-- **Normalization condition**: |\u03b10|² + |\u03b11|² = 1
+- **Normalization condition**: |α0|² + |α1|² = 1
 
 ## Superposition Principle
 
-### What is Superposition?
+Superposition is the quantum mechanical principle that a quantum system can exist in multiple states simultaneously. The key insight:
 
-Superposition is the quantum mechanical principle that a quantum system can exist in multiple states simultaneously. A qubit can be in any linear combination of the basis states \|0\u27e9 and \|1\u27e9.
+- A qubit is **not** in one definite state until measured
+- The superposition state encodes all possible measurement outcomes
+- Each outcome has an associated **amplitude** (a complex number)
+- The **probability** of measuring outcome i is |αi|²
 
-### Example: Equal Superposition
-
-The most common superposition is equal superposition:
-
-```
-|+\u27e9 = (1/\u221a2)|0\u27e9 + (1/\u221a2)|1\u27e9
-```
-
-This state has:
-- 50% probability of measuring 0 (amplitude² = 1/2)
-- 50% probability of measuring 1 (amplitude² = 1/2)
-
-### Example: Weighted Superposition
+Example: The famous Bell state (or entangled pair):
 
 ```
-|\u03c8\u27e9 = (\u221a3/2)|0\u27e9 + (1/2)|1\u27e9
+|Φ⟩ = (1/√2)(|0⟩0⟩ + |1⟩1⟩)
 ```
 
-This state has:
-- 75% probability of measuring 0 (amplitude² = 3/4)
-- 25% probability of measuring 1 (amplitude² = 1/4)
+This state shows equal superposition:
 
-## Probability Amplitudes
-
-The amplitudes α0 and α1 are complex numbers, but their absolute values squared give us probabilities:
-
-- P(measuring 0) = |\u03b10|²
-- P(measuring 1) = |\u03b11|²
-
-### Normalization
-
-For a valid quantum state, the sum of all probabilities must equal 1:
-
-|\u03b10|² + |\u03b11|² = 1
-
-This ensures that when we measure the qubit, we definitely get either 0 or 1.
-
-## Measurement and Wave Function Collapse
-
-### What Happens When We Measure?
-
-When we measure a qubit in superposition:
-
-1. The qubit **collapses** to one of the basis states (\|0\u27e9 or \|1\u27e9)
-2. We get a **definite classical result** (0 or 1)
-3. The **probability** of each outcome depends on the amplitudes
-4. After measurement, the superposition is **destroyed**
-
-### Measurement Example
-
-Given a qubit in state:
-```
-|\u03c8\u27e9 = (2/\u221a5)|0\u27e9 + (1/\u221a5)|1\u27e9
-```
-
-Measuring gives:
-- 80% chance of measuring 0 (then state becomes \|0\u27e9)
-- 20% chance of measuring 1 (then state becomes \|1\u27e9)
-
-## Key Concepts Summary
-
-1. **Qubits** can exist in superposition of 0 and 1
-2. **Superposition** allows quantum computers to process multiple values simultaneously
-3. **Amplitudes** determine the probability of measurement outcomes
-4. **Measurement** collapses superposition to a definite state
-5. **Normalization** ensures probabilities sum to 1
-
-## Common Single-Qubit States
-
-| State Name | Notation | Expression | Probability P(0) | Probability P(1) |
-|------------|----------|------------|-----------------|------------------|
-| State 0 | \|0\u27e9 | 1\|0\u27e9 + 0\|1\u27e9 | 100% | 0% |
-| State 1 | \|1\u27e9 | 0\|0\u27e9 + 1\|1\u27e9 | 0% | 100% |
-| Plus state | \|+\u27e9 | (1/\u221a2)\|0\u27e9 + (1/\u221a2)\|1\u27e9 | 50% | 50% |
-| Minus state | \|-\u27e9 | (1/\u221a2)\|0\u27e9 - (1/\u221a2)\|1\u27e9 | 50% | 50% |
-
-## Visualization
-
-We often visualize single qubits on a **Bloch sphere**:
-- North pole represents \|0\u27e9
-- South pole represents \|1\u27e9
-- Any point on the sphere is a valid quantum state
+- Probability of measuring |00⟩ = |1/√2|² = 1/2
+- Probability of measuring |11⟩ = |1/√2|² = 1/2
 - The equator contains equal superpositions
+
+## Bloch Sphere Visualization
+
+The **Bloch sphere** is a useful geometric representation of single-qubit states:
+
+```
+        |0⟩ (North Pole)
+         |
+        ^
+        |  }
+theta   |    } qubit state position
+        |  }
+        \/____> phi
+       /      (azimuthal angle)
+      /
+     /
+    |1⟩ (South Pole)
+```
+
+- **North Pole**: state |0⟩
+- **South Pole**: state |1⟩
+- **Equator**: equal superposition of |0⟩ and |1⟩
+
+## Mathematical Representation
+
+A general single-qubit state is:
+
+```
+|ψ⟩ = cos(θ/2)|0⟩ + e^(iφ)sin(θ/2)|1⟩
+```
+
+Where:
+
+- **θ** (theta) = polar angle (0 to π)
+- **φ** (phi) = azimuthal angle (0 to 2π)
+- **e^(iφ)** = phase factor
 
 ## Practical Exercise
 
 ### Question 1
+
 If a qubit is in the state:
+
 ```
-|\u03c8\u27e9 = (3/5)|0\u27e9 + (4/5)|1\u27e9
+|ψ⟩ = (3/5)|0⟩ + (4/5)|1⟩
 ```
 
 What is the probability of measuring 0? What is the probability of measuring 1?
 
 ### Question 2
+
 Create a normalized superposition state with 75% probability of measuring 0 and 25% probability of measuring 1.
 
 ## Next Steps
 
 - Review Dirac notation and practice with different states
-- Understand how gates transform superpositions
-- Learn about multi-qubit systems and entanglement
-
-## References
-
-- Nielsen, M. A., & Chuang, I. L. (2010). Quantum Computation and Quantum Information
-- IBM Quantum Documentation
-- Qiskit Textbook: Quantum Bits
-
