@@ -3,106 +3,112 @@
 ## Quantum State Notation
 
 ### Dirac Notation (Ket-Bra)
+
 ```
-|\u03c8\u27e9  = quantum state (ket)
-\u27e8\u03c8|  = dual state (bra)
-\u27e8\u03c8|\u03c6\u27e9 = inner product
+|ψ⟩ = quantum state (ket)
+⟨ψ| = dual state (bra)
+⟨ψ|φ⟩ = inner product
 ```
 
 ### Basis States
+
 ```
-|0\u27e9 = [1, 0]ᵀ  (computational zero)
-|1\u27e9 = [0, 1]ᵀ  (computational one)
+|0⟩ = [1, 0]ᵀ (computational zero)
+|1⟩ = [0, 1]ᵀ (computational one)
 ```
 
 ### Superposition
-```
-|\u03c8\u27e9 = \u03b10|0\u27e9 + \u03b11|1\u27e9
 
-where |\u03b10|² + |\u03b11|² = 1
 ```
-
----
+|ψ⟩ = α0|0⟩ + α1|1⟩
+where |α0|² + |α1|² = 1
+```
 
 ## Essential Quantum Gates
 
 ### Single-Qubit Gates
 
 #### Pauli Gates
-```
-I (Identity):  [1 0]        X (Pauli-X):   [0 1]       Z (Pauli-Z): [1  0]
-               [0 1]                       [1 0]                    [0 -1]
 
-Y (Pauli-Y):   [0 -i]
-               [i  0]
+```
+I (Identity): [1 0]
+X (Pauli-X): [0 1]
+Z (Pauli-Z): [1 0]
+             [0 1]  [1 0]  [0 -1]
+Y (Pauli-Y): [0 -i]
+             [i 0]
 ```
 
 #### Hadamard Gate
+
 ```
 H = (1/√2) * [1  1]
-              [1 -1]
+             [1 -1]
 
-Effect: H|0\u27e9 = (1/\u221a2)(|0\u27e9 + |1\u27e9) = |+\u27e9
-        H|1\u27e9 = (1/\u221a2)(|0\u27e9 - |1\u27e9) = |-\u27e9
-        H² = I
+Effect:
+H|0⟩ = (1/√2)(|0⟩ + |1⟩) = |+⟩
+H|1⟩ = (1/√2)(|0⟩ - |1⟩) = |-⟩
+H² = I
 ```
 
 #### Phase Gates
+
 ```
-S (Phase):     [1 0]        T (T-gate):    [1   0]
-               [0 i]                       [0 e^(i\u03c0/4)]
+S (Phase): [1 0]
+T (T-gate): [1 0]
+            [0 i]   [0 e^(iπ/4)]
 ```
 
 ### Two-Qubit Gates
 
 #### CNOT (CX) - Controlled-NOT
-```
-CNOT:          [1 0 0 0]
-               [0 1 0 0]
-               [0 0 0 1]
-               [0 0 1 0]
 
-Effect: Flips target qubit if control qubit is |1\u27e9
+```
+CNOT: [1 0 0 0]
+      [0 1 0 0]
+      [0 0 0 1]
+      [0 0 1 0]
+
+Effect: Flips target qubit if control qubit is |1⟩
 ```
 
 #### SWAP Gate
+
 ```
 Swaps the states of two qubits
 ```
 
----
-
 ## Common Quantum States
 
 ```
-|0\u27e9  = [1, 0]ᵀ           P(0)=100%, P(1)=0%
-|1\u27e9  = [0, 1]ᵀ           P(0)=0%, P(1)=100%
-|+\u27e9  = (|0\u27e9+|1\u27e9)/√2      P(0)=50%, P(1)=50%
-|-\u27e9  = (|0\u27e9-|1\u27e9)/√2      P(0)=50%, P(1)=50%
-|+i\u27e9 = (|0\u27e9+i|1\u27e9)/√2     P(0)=50%, P(1)=50%
-|-i\u27e9 = (|0\u27e9-i|1\u27e9)/√2     P(0)=50%, P(1)=50%
+|0⟩ = [1, 0]ᵀ    P(0)=100%, P(1)=0%
+|1⟩ = [0, 1]ᵀ    P(0)=0%, P(1)=100%
+|+⟩ = (|0⟩+|1⟩)/√2  P(0)=50%, P(1)=50%
+|-⟩ = (|0⟩-|1⟩)/√2  P(0)=50%, P(1)=50%
+|+i⟩ = (|0⟩+i|1⟩)/√2 P(0)=50%, P(1)=50%
+|-i⟩ = (|0⟩-i|1⟩)/√2 P(0)=50%, P(1)=50%
 ```
 
 ### Bell States (Entangled)
-```
-|\u0393\u207a\u27e9 = (|00\u27e9 + |11\u27e9)/√2
-|\u0393⁻\u27e9 = (|00\u27e9 - |11\u27e9)/√2
-|\u0398\u207a\u27e9 = (|01\u27e9 + |10\u27e9)/√2
-|\u0398⁻\u27e9 = (|01\u27e9 - |10\u27e9)/√2
-```
 
----
+```
+|Φ⁺⟩ = (|00⟩ + |11⟩)/√2
+|Φ⁻⟩ = (|00⟩ - |11⟩)/√2
+|Ψ⁺⟩ = (|01⟩ + |10⟩)/√2
+|Ψ⁻⟩ = (|01⟩ - |10⟩)/√2
+```
 
 ## Quantum Algorithms at a Glance
 
 ### Deutsch Algorithm
+
 ```
 Problem: Determine if f: {0,1} → {0,1} is constant or balanced
 Classical: O(2) function calls
-Quantum:   O(1) function call
+Quantum: O(1) function call
 
 Algorithm:
-1. Initialize |0\u27e9|1\u27e9
+1. Initialize |0⟩|1⟩
 2. Apply Hadamard to both
 3. Apply oracle U_f
 4. Apply Hadamard to first qubit
@@ -112,17 +118,19 @@ Algorithm:
 ```
 
 ### Deutsch-Jozsa Algorithm
+
 ```
 Extends Deutsch to n-bit functions
 Classical: O(2^(n-1)) calls
-Quantum:   O(1) call
+Quantum: O(1) call
 ```
 
 ### Grover's Search Algorithm
+
 ```
 Problem: Search unsorted database of N items for marked item
 Classical: O(N)
-Quantum:   O(√N)
+Quantum: O(√N)
 
 Key Components:
 - Oracle: marks the solution state
@@ -131,21 +139,21 @@ Key Components:
 ```
 
 ### Shor's Algorithm
+
 ```
 Problem: Factor large integers
 Classical: Exponential time
-Quantum:   Polynomial time
+Quantum: Polynomial time
 
 Applications:
 - Breaking RSA encryption
 - Key exchange systems
 ```
 
----
-
 ## Qiskit Quick Start
 
 ### Basic Circuit Creation
+
 ```python
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
 from qiskit_aer import AerSimulator
@@ -164,21 +172,20 @@ print(counts)
 ```
 
 ### Common Operations
-```python
-qc.x(qubit)        # Pauli-X (bit flip)
-qc.y(qubit)        # Pauli-Y
-qc.z(qubit)        # Pauli-Z
-qc.h(qubit)        # Hadamard
-qc.s(qubit)        # S gate
-qc.t(qubit)        # T gate
-qc.rx(theta, qubit)    # Rotation around X
-qc.ry(theta, qubit)    # Rotation around Y
-qc.rz(theta, qubit)    # Rotation around Z
-qc.cx(control, target) # CNOT
-qc.measure(qubit, cbit)    # Measure
-```
 
----
+```python
+qc.x(qubit)         # Pauli-X (bit flip)
+qc.y(qubit)         # Pauli-Y
+qc.z(qubit)         # Pauli-Z
+qc.h(qubit)         # Hadamard
+qc.s(qubit)         # S gate
+qc.t(qubit)         # T gate
+qc.rx(theta, qubit) # Rotation around X
+qc.ry(theta, qubit) # Rotation around Y
+qc.rz(theta, qubit) # Rotation around Z
+qc.cx(control, target)  # CNOT
+qc.measure(qubit, cbit) # Measure
+```
 
 ## Key Quantum Computing Principles
 
@@ -204,8 +211,6 @@ qc.measure(qubit, cbit)    # Measure
 - Can only be done once (destroys information)
 - Result is probabilistic
 
----
-
 ## Complexity Comparison
 
 | Problem | Classical | Quantum | Algorithm |
@@ -214,8 +219,6 @@ qc.measure(qubit, cbit)    # Measure
 | Database search | O(N) | O(√N) | Grover |
 | Integer factoring | O(e^(n^(1/3))) | O(n³) | Shor |
 | Linear systems | O(n³) | O(log²n) | HHL |
-
----
 
 ## Important Definitions
 
@@ -235,17 +238,14 @@ qc.measure(qubit, cbit)    # Measure
 
 **Phase kick-back**: Using auxiliary qubit to encode function output
 
----
-
 ## Bloch Sphere
 
 Visualizes single-qubit states:
-- North pole: |0\u27e9
-- South pole: |1\u27e9
+
+- North pole: |0⟩
+- South pole: |1⟩
 - Equator: Superposition states
 - Any point on sphere: Valid quantum state
-
----
 
 ## Resources
 
@@ -253,4 +253,3 @@ Visualizes single-qubit states:
 - Nielsen & Chuang Textbook
 - Qiskit Documentation: qiskit.org
 - Online Quantum Simulator: IBM Quantum
-
